@@ -1,0 +1,9 @@
+{
+    "template": "helper_action",
+    "description": "Defaults the selected argument of the author/thread alert macros to true",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(arg-selected=\"){{ false }}(\")/isU",
+    "replace": "$1{{ true }}$2"
+}
