@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Service\\Report\\Creator",
+    "to_class": "Jrahmy\\Moderation\\XF\\Service\\Report\\Creator",
+    "execute_order": 0,
+    "active": true
+}

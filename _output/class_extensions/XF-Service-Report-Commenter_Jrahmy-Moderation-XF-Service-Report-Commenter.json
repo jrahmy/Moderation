@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Service\\Report\\Commenter",
+    "to_class": "Jrahmy\\Moderation\\XF\\Service\\Report\\Commenter",
+    "execute_order": 0,
+    "active": true
+}

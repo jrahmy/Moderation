@@ -1,0 +1,9 @@
+{
+    "template": "member_warn",
+    "description": "Sets the checked attribute of the lock conversation checkbox",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(<xf:option name=\"conversation_locked\" .+)(>)/isU",
+    "replace": "$1 checked=\"checked\"$2"
+}
