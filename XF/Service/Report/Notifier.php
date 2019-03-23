@@ -108,11 +108,10 @@ class Notifier extends XFCP_Notifier
             ));
 
             /** @var \XF\Mvc\Entity\AbstractCollection $users */
-            $users = $this->em()->findByIds(
-                'XF:User',
-                $userIds,
-                ['Profile', 'Option']
-            );
+            $users = $this->em()->findByIds('XF:User', $userIds, [
+                'Profile',
+                'Option'
+            ]);
             if (!$users->count()) {
                 return [];
             }
@@ -136,10 +135,11 @@ class Notifier extends XFCP_Notifier
      */
     protected function sendAssignNotification(User $user)
     {
-        if (
-            !empty($this->usersAlerted[$user->user_id])
-            || ($user->user_id == $this->comment->user_id)
-        ) {
+        if ($user->user_id == $this->comment->user_id) {
+            return false;
+        }
+
+        if (!empty($this->usersAlerted[$user->user_id])) {
             return false;
         }
 
@@ -169,10 +169,11 @@ class Notifier extends XFCP_Notifier
      */
     protected function sendCommentNotification(User $user)
     {
-        if (
-            !empty($this->usersAlerted[$user->user_id])
-            || ($user->user_id == $this->comment->user_id)
-        ) {
+        if ($user->user_id == $this->comment->user_id) {
+            return false;
+        }
+
+        if (!empty($this->usersAlerted[$user->user_id])) {
             return false;
         }
 
