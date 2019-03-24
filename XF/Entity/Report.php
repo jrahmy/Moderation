@@ -21,6 +21,10 @@ class Report extends XFCP_Report
      */
     public function wasOpen()
     {
+        if ($this->first_report_date == $this->last_modified_date) {
+            return false;
+        }
+
         $previousState = $this->getPreviousValue('report_state');
         return (($previousState == 'open') || ($previousState == 'assigned'));
     }
