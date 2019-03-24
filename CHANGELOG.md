@@ -1,7 +1,13 @@
-Change Log
-==========
+Changelog
+=========
+
+[1.0.0-beta1] - 2019-03-24
+--------------------------
+### Changed
+- Use canonical links in push templates
+- Code clean-up
 
 [1.0.0-alpha1] - 2019-03-22
-------------
+---------------------------
 ### Added
 - XenForo 2.0.0 support

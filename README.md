@@ -3,7 +3,7 @@ Moderation
 This add-on provides various improvements to moderation systems to help ease
 moderator workflow.
 
---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 
 Usage
 -----

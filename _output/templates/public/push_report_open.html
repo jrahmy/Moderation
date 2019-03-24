@@ -2,4 +2,4 @@
 	'name': $user.username ?: $alert.username,
 	'title': $content.title
 }) }}
-<push:url>{{ link('reports', $content) }}#report-comment-{$alert.extra_data.comment.report_comment_id}</push:url>
+<push:url>{{ link('canonical:reports', $content) }}#report-comment-{$alert.extra_data.comment.report_comment_id}</push:url>
