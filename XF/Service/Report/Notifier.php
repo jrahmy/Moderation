@@ -179,28 +179,6 @@ class Notifier extends XFCP_Notifier
             return false;
         }
 
-        switch ($this->comment->state_change) {
-            case 'open':
-                $action = 'open';
-                break;
-
-            case 'assigned':
-                $action = 'assign';
-                break;
-
-            case 'resolved':
-                $action = 'resolve';
-                break;
-
-            case 'rejected':
-                $action = 'reject';
-                break;
-
-            default:
-                $action = 'comment';
-                break;
-        }
-
         /** @var \XF\Repository\UserAlert $alertRepo */
         $alertRepo = $this->repository('XF:UserAlert');
         $alert = $alertRepo->alert(
@@ -209,7 +187,7 @@ class Notifier extends XFCP_Notifier
             $this->comment->username,
             'report',
             $this->comment->report_id,
-            $action,
+            $this->comment->action,
             ['comment' => $this->comment->toArray()]
         );
         if (!$alert) {

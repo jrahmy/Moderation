@@ -31,10 +31,7 @@ class Creator extends XFCP_Creator
             $this->comment
         );
 
-        if (
-            $this->report->report_state == 'assigned' &&
-            $this->report->getPreviousValue('report_state') != 'assigned'
-        ) {
+        if ($this->comment->action == 'assign') {
             $notifier->setNotifyAssigned([$this->report->assigned_user_id]);
         }
 

@@ -6,6 +6,7 @@
 namespace Jrahmy\Moderation\XF\Entity
 {
 	class XFCP_Report extends \XF\Entity\Report {}
+	class XFCP_ReportComment extends \XF\Entity\ReportComment {}
 }
 
 namespace Jrahmy\Moderation\XF\Repository
