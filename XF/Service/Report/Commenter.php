@@ -37,8 +37,8 @@ class Commenter extends XFCP_Commenter
         );
 
         if (
-            ($this->report->report_state == 'assigned')
-            && ($this->report->getPreviousValue('report_state') != 'assigned')
+            $this->report->report_state == 'assigned' &&
+            $this->report->getPreviousValue('report_state') != 'assigned'
         ) {
             $notifier->setNotifyAssigned([$this->report->assigned_user_id]);
         }

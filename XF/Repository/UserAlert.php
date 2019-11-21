@@ -26,10 +26,9 @@ class UserAlert extends XFCP_UserAlert
         $contentType,
         $contentId
     ) {
-        $db = $this->db();
-        $userIds = $db->quote($userIds);
+        $userIds = $this->db()->quote($userIds);
 
-        return $db->fetchPairs(
+        return $this->db()->fetchPairs(
             "SELECT alerted_user_id, COUNT(*)
                 FROM xf_user_alert
                 WHERE alerted_user_id IN ({$userIds})

@@ -101,16 +101,18 @@ class Notifier extends XFCP_Notifier
     protected function getUsersForNotification()
     {
         if (!$this->notifiableUsers) {
-            $userIds = array_unique(array_merge(
-                $this->getNotifyAssigned(),
-                $this->getNotifyMentioned(),
-                $this->getNotifyCommented()
-            ));
+            $userIds = array_unique(
+                array_merge(
+                    $this->getNotifyAssigned(),
+                    $this->getNotifyMentioned(),
+                    $this->getNotifyCommented()
+                )
+            );
 
             /** @var \XF\Mvc\Entity\AbstractCollection $users */
             $users = $this->em()->findByIds('XF:User', $userIds, [
                 'Profile',
-                'Option'
+                'Option',
             ]);
             if (!$users->count()) {
                 return [];
