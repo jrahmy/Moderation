@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ----------
+
+[1.0.0] - 2019-11-21
+--------------------
 ### Changed
 - Fix incorrect alert types being sent in some situations
 - Code clean-up
