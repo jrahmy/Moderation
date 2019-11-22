@@ -15,27 +15,20 @@ namespace Jrahmy\Moderation\XF\Repository;
 class UserAlert extends XFCP_UserAlert
 {
     /**
-     * @param array  $userIds
      * @param string $contentType
      * @param int    $contentId
      *
      * @return array
      */
-    public function getUnreadContentAlertCountsForUsers(
-        array $userIds,
-        $contentType,
-        $contentId
-    ) {
-        $userIds = $this->db()->quote($userIds);
-
+    public function getUnreadAlertCountsForContent($contentType, $contentId)
+    {
         return $this->db()->fetchPairs(
-            "SELECT alerted_user_id, COUNT(*)
+            'SELECT alerted_user_id, COUNT(*)
                 FROM xf_user_alert
-                WHERE alerted_user_id IN ({$userIds})
-                    AND content_type = ?
-                    AND content_id = ?
-                    AND view_date = 0
-                GROUP BY user_id",
+                    WHERE content_type = ?
+                        AND content_id = ?
+                        AND view_date = 0
+                GROUP BY alerted_user_id',
             [$contentType, $contentId]
         );
     }

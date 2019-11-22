@@ -46,8 +46,7 @@ class Commenter extends XFCP_Commenter
 
         /** @var \Jrahmy\Moderation\XF\Repository\UserAlert $alertRepo */
         $alertRepo = $this->repository('XF:UserAlert');
-        $alertCounts = $alertRepo->getUnreadContentAlertCountsForUsers(
-            $this->report->comment_user_ids,
+        $alertCounts = $alertRepo->getUnreadAlertCountsForContent(
             'report',
             $this->report->report_id
         );
