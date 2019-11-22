@@ -26,7 +26,7 @@ class Report extends XFCP_Report
         }
 
         $previousState = $this->getPreviousValue('report_state');
-        return (($previousState == 'open') || ($previousState == 'assigned'));
+        return $previousState == 'open' || $previousState == 'assigned';
     }
 
     /**

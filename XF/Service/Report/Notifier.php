@@ -101,16 +101,18 @@ class Notifier extends XFCP_Notifier
     protected function getUsersForNotification()
     {
         if (!$this->notifiableUsers) {
-            $userIds = array_unique(array_merge(
-                $this->getNotifyAssigned(),
-                $this->getNotifyMentioned(),
-                $this->getNotifyCommented()
-            ));
+            $userIds = array_unique(
+                array_merge(
+                    $this->getNotifyAssigned(),
+                    $this->getNotifyMentioned(),
+                    $this->getNotifyCommented()
+                )
+            );
 
             /** @var \XF\Mvc\Entity\AbstractCollection $users */
             $users = $this->em()->findByIds('XF:User', $userIds, [
                 'Profile',
-                'Option'
+                'Option',
             ]);
             if (!$users->count()) {
                 return [];
@@ -177,28 +179,6 @@ class Notifier extends XFCP_Notifier
             return false;
         }
 
-        switch ($this->comment->state_change) {
-            case 'open':
-                $action = 'open';
-                break;
-
-            case 'assigned':
-                $action = 'assign';
-                break;
-
-            case 'resolved':
-                $action = 'resolve';
-                break;
-
-            case 'rejected':
-                $action = 'reject';
-                break;
-
-            default:
-                $action = 'comment';
-                break;
-        }
-
         /** @var \XF\Repository\UserAlert $alertRepo */
         $alertRepo = $this->repository('XF:UserAlert');
         $alert = $alertRepo->alert(
@@ -207,7 +187,7 @@ class Notifier extends XFCP_Notifier
             $this->comment->username,
             'report',
             $this->comment->report_id,
-            $action,
+            $this->comment->action,
             ['comment' => $this->comment->toArray()]
         );
         if (!$alert) {

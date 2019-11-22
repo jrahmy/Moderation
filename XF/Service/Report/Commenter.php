@@ -36,10 +36,7 @@ class Commenter extends XFCP_Commenter
             $this->comment
         );
 
-        if (
-            ($this->report->report_state == 'assigned')
-            && ($this->report->getPreviousValue('report_state') != 'assigned')
-        ) {
+        if ($this->comment->action == 'assign') {
             $notifier->setNotifyAssigned([$this->report->assigned_user_id]);
         }
 
@@ -49,8 +46,7 @@ class Commenter extends XFCP_Commenter
 
         /** @var \Jrahmy\Moderation\XF\Repository\UserAlert $alertRepo */
         $alertRepo = $this->repository('XF:UserAlert');
-        $alertCounts = $alertRepo->getUnreadContentAlertCountsForUsers(
-            $this->report->comment_user_ids,
+        $alertCounts = $alertRepo->getUnreadAlertCountsForContent(
             'report',
             $this->report->report_id
         );
