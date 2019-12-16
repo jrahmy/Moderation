@@ -1,0 +1,9 @@
+{
+    "template": "post_macros",
+    "description": "Adds a 'View report' action for posts with viewable reports",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<xf:if is=\"\\$post\\.canReport\\(\\)\">(.+)<\\/xf:if>/isU",
+    "replace": "<xf:if is=\"$xf.visitor.is_moderator && $post.Report && $post.Report.canView()\">\n\t<a href=\"{{ link('reports', $post.Report) }}\" class=\"actionBar-action actionBar-action--report-view\">\n\t\t{{ phrase('j_m_view_report') }}\n\t</a>\n<xf:elseif is=\"$post.canReport()\" />\n\t$1\n</xf:if>"
+}

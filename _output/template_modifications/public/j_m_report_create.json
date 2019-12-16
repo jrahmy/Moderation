@@ -1,0 +1,9 @@
+{
+    "template": "report_create",
+    "description": "Enables redirection after report creation for moderatorsd",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(data-skip-overlay-redirect=\").+(\")/isU",
+    "replace": "$1{{ $xf.visitor.is_moderator ? 'false' : 'true' }}$2"
+}
