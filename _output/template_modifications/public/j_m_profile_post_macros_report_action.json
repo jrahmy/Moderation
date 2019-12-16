@@ -1,0 +1,9 @@
+{
+    "template": "profile_post_macros",
+    "description": "Adds a 'View report' action for profile posts with viewable reports",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<xf:if is=\"\\$profilePost\\.canReport\\(\\)\">(.+)<\\/xf:if>/isU",
+    "replace": "<xf:if is=\"$xf.visitor.is_moderator && $profilePost.Report && $profilePost.Report.canView()\">\n\t<a href=\"{{ link('reports', $profilePost.Report) }}\" class=\"actionBar-action actionBar-action--report-view\">\n\t\t{{ phrase('j_m_view_report') }}\n\t</a>\n<xf:elseif is=\"$profilePost.canReport()\" />\n\t$1\n</xf:if>"
+}

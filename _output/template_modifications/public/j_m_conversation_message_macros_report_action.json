@@ -1,0 +1,9 @@
+{
+    "template": "conversation_message_macros",
+    "description": "Adds a 'View report' action for conversation messages with viewable reports",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<xf:if is=\"\\$message\\.canReport\\(\\)\">(.+)<\\/xf:if>/isU",
+    "replace": "<xf:if is=\"$xf.visitor.is_moderator && $message.Report && $message.Report.canView()\">\n\t<a href=\"{{ link('reports', $message.Report) }}\" class=\"actionBar-action actionBar-action--report-view\">\n\t\t{{ phrase('j_m_view_report') }}\n\t</a>\n<xf:elseif is=\"$message.canReport()\" />\n\t$1\n</xf:if>"
+}

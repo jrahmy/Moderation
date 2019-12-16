@@ -30,7 +30,7 @@ class Report extends XFCP_Report
     }
 
     /**
-     * @return array
+     * @return int[]
      */
     public function getCommentUserIds()
     {

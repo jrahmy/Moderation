@@ -1,0 +1,9 @@
+{
+    "template": "member_view",
+    "description": "Adds a 'View report' button for users with viewable reports",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<xf:if is=\"\\$user\\.canBeReported\\(\\)\">(.+)<\\/xf:if>/isU",
+    "replace": "<xf:if is=\"$xf.visitor.is_moderator && $user.Report && $user.Report.canView()\">\n\t<xf:button href=\"{{ link('reports', $user.Report) }}\" class=\"button--link\">\n\t\t\n\t\t{{ phrase('j_m_view_report') }}\n\t</xf:button>\n<xf:elseif is=\"$user.canBeReported()\" />\n\t$1\n</xf:if>"
+}

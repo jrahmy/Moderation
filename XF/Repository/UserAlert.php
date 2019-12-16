@@ -18,7 +18,7 @@ class UserAlert extends XFCP_UserAlert
      * @param string $contentType
      * @param int    $contentId
      *
-     * @return array
+     * @return int[][]
      */
     public function getUnreadAlertCountsForContent($contentType, $contentId)
     {

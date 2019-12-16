@@ -17,22 +17,22 @@ use XF\Entity\User;
 class Notifier extends XFCP_Notifier
 {
     /**
-     * @var array
+     * @var int[]
      */
     protected $notifyAssigned = [];
 
     /**
-     * @var array
+     * @var int[]
      */
     protected $notifyCommented = [];
 
     /**
-     * @var array
+     * @var int[]
      */
     protected $notifiableUsers = [];
 
     /**
-     * @param array $users
+     * @param int[] $users
      */
     public function setNotifyAssigned(array $users)
     {
@@ -40,7 +40,7 @@ class Notifier extends XFCP_Notifier
     }
 
     /**
-     * @return array
+     * @return int[]
      */
     public function getNotifyAssigned()
     {
@@ -48,7 +48,7 @@ class Notifier extends XFCP_Notifier
     }
 
     /**
-     * @param array $users
+     * @param int[] $users
      */
     public function setNotifyCommented(array $users)
     {
@@ -56,7 +56,7 @@ class Notifier extends XFCP_Notifier
     }
 
     /**
-     * @return array
+     * @return int[]
      */
     public function getNotifyCommented()
     {
@@ -94,7 +94,7 @@ class Notifier extends XFCP_Notifier
     }
 
     /**
-     * @return array
+     * @return User[]
      *
      * @noparent
      */
