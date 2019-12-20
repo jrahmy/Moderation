@@ -1,0 +1,9 @@
+{
+    "template": "conversation_message_macros",
+    "description": "Adds a warning message for conversation messages with public warnings",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<xf:if is=\"\\$message\\.isIgnored\\(\\)\">.+<\\/xf:if>/isU",
+    "replace": "<xf:include template=\"j_m_conversation_message_macros_warning_message\" />\n$0"
+}

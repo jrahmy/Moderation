@@ -1,0 +1,9 @@
+{
+    "template": "conversation_message_macros",
+    "description": "Adds a warning action to conversation messages",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<xf:if is=\"\\$xf\\.visitor\\.canViewIps\\(\\) && \\$message\\.ip_id\">.+<\\/xf:if>/isU",
+    "replace": "$0\n<xf:include template=\"j_m_conversation_message_macros_warn_action\" />"
+}
