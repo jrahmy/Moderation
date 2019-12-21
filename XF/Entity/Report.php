@@ -52,6 +52,14 @@ class Report extends XFCP_Report
     {
         $structure = parent::getStructure($structure);
 
+        $structure->relations['Warnings'] = [
+            'entity' => 'XF:Warning',
+            'type' => self::TO_MANY,
+            'conditions' => [
+                ['content_type', '=', '$content_type'],
+                ['content_id', '=', '$content_id'],
+            ],
+        ];
         $structure->getters['comment_user_ids'] = true;
 
         return $structure;

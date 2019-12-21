@@ -1,0 +1,9 @@
+{
+    "template": "warning_info",
+    "description": "Adds a report row to the warning info page",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<xf:formrow label=\"{{ phrase\\('warning_points'\\) }}\">.+<\\/xf:formrow>/isU",
+    "replace": "$0\n<xf:include template=\"j_m_warning_info_report\" />"
+}

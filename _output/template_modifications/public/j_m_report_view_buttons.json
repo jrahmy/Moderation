@@ -1,0 +1,9 @@
+{
+    "template": "report_view",
+    "description": "Adds additional buttons to the report view",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/<xf:if is=\"\\$report\\.link\">.+<\\/xf:if>/isU",
+    "replace": "<xf:include template=\"j_m_report_view_buttons\" />"
+}

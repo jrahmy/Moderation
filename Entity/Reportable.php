@@ -17,6 +17,16 @@ use XF\Mvc\Entity\Structure;
 trait Reportable
 {
     /**
+     * @return bool
+     */
+    public function hasOpenReport()
+    {
+        /** @var \XF\Entity\Report $report */
+        $report = $this->Report;
+        return $report && !$report->isClosed();
+    }
+
+    /**
      * @param Structure $structure
      */
     public static function setupReportableStructure(Structure $structure)

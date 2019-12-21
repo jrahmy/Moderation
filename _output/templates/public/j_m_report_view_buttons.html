@@ -1,0 +1,23 @@
+<xf:if contentcheck="true">
+	<div class="block-footer">
+		<span class="block-footer-controls">
+			<xf:contentcheck>
+				<xf:if is="$report.link">
+					<xf:button href="{$report.link}">
+						{{ phrase('go_to_content') }}
+					</xf:button>
+				</xf:if>
+
+				<xf:if is="$warnable && $report.Content && $report.Content.canWarn()">
+					<xf:button href="{{ $report.Content.getWarnUrl() }}">
+						{{ phrase('j_m_warn_content') }}
+					</xf:button>
+				<xf:elseif is="$xf.visitor.canViewWarnings() && $warning" />
+					<xf:button href="{{ link('warnings', $warning) }}" overlay="true">
+						{{ phrase('j_m_view_content_warning') }}
+					</xf:button>
+				</xf:if>
+			</xf:contentcheck>
+		</span>
+	</div>
+</xf:if>

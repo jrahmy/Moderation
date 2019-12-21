@@ -1,0 +1,14 @@
+<xf:if is="$message.canWarn()">
+	<a href="{{ link('conversations/messages/warn', $message) }}"
+		class="actionBar-action actionBar-action--warn actionBar-action--menuItem">
+
+		{{ phrase('warn') }}
+	</a>
+<xf:elseif is="$message.j_warning_id && $xf.visitor.canViewWarnings()" />
+	<a href="{{ link('warnings', {'warning_id': $message.j_warning_id}) }}"
+		class="actionBar-action actionBar-action--warn actionBar-action--menuItem"
+		data-xf-click="overlay">
+
+		{{ phrase('view_warning') }}
+	</a>
+</xf:if>

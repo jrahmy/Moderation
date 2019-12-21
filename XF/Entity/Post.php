@@ -10,14 +10,40 @@
 namespace Jrahmy\Moderation\XF\Entity;
 
 use Jrahmy\Moderation\Entity\Reportable;
+use Jrahmy\Moderation\Entity\WarnableInterface;
 use XF\Mvc\Entity\Structure;
 
 /**
  * Extends \XF\Entity\Post
  */
-class Post extends XFCP_Post
+class Post extends XFCP_Post implements WarnableInterface
 {
     use Reportable;
+
+    /**
+     * @param string|null $error
+     *
+     * @return bool
+     */
+    public function canWarn(&$error = null)
+    {
+        $canWarn = parent::canWarn($error);
+
+        if ($canWarn && !$this->hasOpenReport()) {
+            return false;
+        }
+
+        return $canWarn;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWarnUrl()
+    {
+        $router = $this->app()->router('public');
+        return $router->buildLink('posts/warn', $this);
+    }
 
     /**
      * @param Structure $structure
