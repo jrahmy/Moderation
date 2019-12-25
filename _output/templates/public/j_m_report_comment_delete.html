@@ -1,0 +1,19 @@
+<xf:title>{{ phrase('j_m_delete_report_comment') }}</xf:title>
+
+<xf:breadcrumb href="{{ link('reports') }}">{{ phrase('reports') }}</xf:breadcrumb>
+<xf:breadcrumb href="{{ link('reports', $report) }}">{$report.title}</xf:breadcrumb>
+
+<xf:form action="{{ link('reports/comments/delete', $comment) }}" class="block" ajax="true">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				{{ phrase('please_confirm_that_you_want_to_delete_following:') }}
+				<strong><a href="{{ link('reports/comments', $comment) }}">{$comment.title}</a></strong>
+			</xf:inforow>
+		</div>
+
+		<xf:submitrow icon="delete" />
+	</div>
+
+	<xf:redirect />
+</xf:form>

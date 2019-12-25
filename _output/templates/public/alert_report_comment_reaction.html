@@ -1,0 +1,6 @@
+{{ phrase('j_m_x_reacted_to_your_comment_on_report_y', {
+	'name': username_link($user, false, {'defaultname': $alert.username}),
+	'comment_attributes': 'href="' . link('reports/comments', $content) . '" class="fauxBlockLink-blockLink"',
+	'report': $content.Report.title,
+	'reaction': alert_reaction($extra.reaction_id)|preescaped
+}) }}

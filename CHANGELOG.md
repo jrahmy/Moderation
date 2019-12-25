@@ -5,6 +5,10 @@ Unreleased
 ----------
 ### Added
 - Display content link on conversation message reports
+- Implement editing for report comments
+- Implement deletion for report comments
+- Implement IP logging for report comments
+- Implement reactions for report comments
 
 [1.0.2] - 2019-12-21
 --------------------

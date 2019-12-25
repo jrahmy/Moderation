@@ -1,0 +1,9 @@
+{
+    "template": "report_view",
+    "description": "Adds an ID attribute to the comment wrapper",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "/(<article class=\"message message--simple\")(>)/isU",
+    "replace": "$1 id=\"js-reportComment-{$comment.report_comment_id}\" $2"
+}

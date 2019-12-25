@@ -15,6 +15,26 @@ namespace Jrahmy\Moderation\XF\Service\Report;
 class Commenter extends XFCP_Commenter
 {
     /**
+     * @param bool|string $logIp
+     */
+    public function logIp($logIp)
+    {
+        $this->commentPreparer->logIp($logIp);
+    }
+
+    /**
+     * @return \XF\Entity\ReportComment
+     */
+    public function _save()
+    {
+        $comment = parent::_save();
+
+        $this->commentPreparer->afterInsert();
+
+        return $comment;
+    }
+
+    /**
      * @noparent
      */
     public function sendNotifications()

@@ -1,4 +1,4 @@
 {{ phrase('j_m_x_resolved_report_y', {
 	'name': username_link($user, false, {'defaultname': $alert.username}),
-	'title': '<a href="' . link('reports', $content) . '#report-comment-' . $alert.extra_data.comment.report_comment_id . '" class="fauxBlockLink-blockLink">' . $content.title . '</a>'
+	'title': '<a href="' . link('reports/comments', $alert.extra_data.comment) . '" class="fauxBlockLink-blockLink">' . $content.title . '</a>'
 }) }}
