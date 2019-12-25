@@ -3,6 +3,8 @@ Changelog
 
 Unreleased
 ----------
+### Added
+- Display content link on conversation message reports
 
 [1.0.2] - 2019-12-21
 --------------------
