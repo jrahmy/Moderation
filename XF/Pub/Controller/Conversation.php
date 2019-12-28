@@ -30,6 +30,10 @@ class Conversation extends XFCP_Conversation
 
         $breadcrumbs = [
             [
+                'value' => \XF::phrase('conversations'),
+                'href' => $this->buildLink('conversations'),
+            ],
+            [
                 'value' => $message->Conversation->title,
                 'href' => $this->buildLink(
                     'conversations',

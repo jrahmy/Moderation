@@ -10,6 +10,9 @@ Unreleased
 - Implement IP logging for report comments
 - Implement reactions for report comments
 
+### Changed
+- Fix conversation warning breadcrumbs
+
 [1.0.2] - 2019-12-21
 --------------------
 ### Added
