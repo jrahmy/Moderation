@@ -238,8 +238,8 @@ class Report extends XFCP_Report
     }
 
     /**
-     * @param       $commentId
-     * @param array $extraWith
+     * @param int      $commentId
+     * @param string[] $extraWith
      *
      * @return \XF\Entity\ReportComment
      *

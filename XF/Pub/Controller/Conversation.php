@@ -53,8 +53,8 @@ class Conversation extends XFCP_Conversation
     }
 
     /**
-     * @param int $messageId
-     * @param array $extraWith
+     * @param int      $messageId
+     * @param string[] $extraWith
      *
      * @return \XF\Entity\ConversationMessage
      *

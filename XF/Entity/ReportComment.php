@@ -187,7 +187,7 @@ class ReportComment extends XFCP_ReportComment
     /**
      * @return string
      */
-    protected function getAction()
+    public function getAction()
     {
         if ($this->is_report) {
             return 'report';

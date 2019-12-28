@@ -12,6 +12,7 @@ Unreleased
 
 ### Changed
 - Fix conversation warning breadcrumbs
+- Code clean-up
 
 [1.0.2] - 2019-12-21
 --------------------
