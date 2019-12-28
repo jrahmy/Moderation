@@ -4,6 +4,21 @@ Changelog
 Unreleased
 ----------
 
+[1.0.2] - 2019-12-21
+--------------------
+### Added
+- Link reports and warnings together
+- Implement conversation message warnings
+
+[1.0.1] - 2019-12-16
+--------------------
+### Added
+- Redirect to a report after it is created if the visitor can view it
+- Add a 'View report' button to content with an existing report
+
+### Changed
+- Code clean-up
+
 [1.0.0] - 2019-11-21
 --------------------
 ### Changed
