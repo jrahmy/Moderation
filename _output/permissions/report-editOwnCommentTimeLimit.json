@@ -1,0 +1,6 @@
+{
+    "permission_type": "integer",
+    "interface_group_id": "generalModeratorPermissions",
+    "display_order": 220,
+    "depend_permission_id": ""
+}

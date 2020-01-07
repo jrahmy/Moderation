@@ -1,0 +1,81 @@
+<footer class="message-footer">
+	<div class="message-actionBar actionBar">
+		<xf:if contentcheck="true">
+			<div class="actionBar-set actionBar-set--external">
+				<xf:contentcheck>
+					<xf:react
+						content="{$comment}"
+						link="reports/comments/react"
+						list="< .message | .js-reactionsList" />
+				</xf:contentcheck>
+			</div>
+		</xf:if>
+
+		<xf:if contentcheck="true">
+			<div class="actionBar-set actionBar-set--internal">
+				<xf:contentcheck>
+					<xf:set var="$hasActionBarMenu" value="{{ false }}" />
+
+					<xf:if is="$comment.canEdit()">
+						<xf:js src="xf/message.js" min="1" />
+						<a href="{{ link('reports/comments/edit', $comment) }}"
+							class="actionBar-action actionBar-action--edit actionBar-action--menuItem"
+							data-xf-click="quick-edit"
+							data-editor-target="#js-reportComment-{$comment.report_comment_id} .js-quickEditTarget"
+							data-menu-closer="true">
+
+							{{ phrase('edit') }}
+						</a>
+						<xf:set var="$hasActionBarMenu" value="{{ true }}" />
+					</xf:if>
+
+					<xf:if is="$comment.canDelete()">
+						<a href="{{ link('reports/comments/delete', $comment) }}"
+							class="actionBar-action actionBar-action--delete actionBar-action--menuItem"
+							data-xf-click="overlay">
+
+							{{ phrase('delete') }}
+						</a>
+						<xf:set var="$hasActionBarMenu" value="{{ true }}" />
+					</xf:if>
+
+					<xf:if is="$xf.visitor.canViewIps() && $comment.j_ip_id">
+						<a href="{{ link('reports/comments/ip', $comment) }}"
+							class="actionBar-action actionBar-action--ip actionBar-action--menuItem"
+							data-xf-click="overlay">
+
+							{{ phrase('ip') }}
+						</a>
+						<xf:set var="$hasActionBarMenu" value="{{ true }}" />
+					</xf:if>
+
+					<xf:if is="$hasActionBarMenu">
+						<a class="actionBar-action actionBar-action--menuTrigger"
+							data-xf-click="menu"
+							title="{{ phrase('more_options')|for_attr }}"
+							role="button" tabindex="0"
+							aria-expanded="false" aria-haspopup="true">
+
+							&#8226;&#8226;&#8226;
+						</a>
+
+						<div class="menu" data-menu="menu" data-menu-builder="actionBar" aria-hidden="true">
+							<div class="menu-content">
+								<h4 class="menu-header">{{ phrase('more_options') }}</h4>
+								<div class="js-menuBuilderTarget"></div>
+							</div>
+						</div>
+					</xf:if>
+				</xf:contentcheck>
+			</div>
+		</xf:if>
+	</div>
+
+	<section class="message-responses js-messageResponses">
+		<div class="message-responseRow message-responseRow--reactions js-reactionsList {{ $comment.reactions ? 'is-active' : '' }}">
+			<xf:if is="$comment.reactions">
+				<xf:reactions content="{$comment}" link="reports/comments/reactions" />
+			</xf:if>
+		</div>
+	</section>
+</footer>

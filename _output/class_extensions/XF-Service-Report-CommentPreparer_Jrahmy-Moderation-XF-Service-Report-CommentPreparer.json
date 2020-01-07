@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Service\\Report\\CommentPreparer",
+    "to_class": "Jrahmy\\Moderation\\XF\\Service\\Report\\CommentPreparer",
+    "execute_order": 10,
+    "active": true
+}

@@ -1,0 +1,8 @@
+{{ phrase('j_m_push_x_reacted_to_your_comment_on_report_y', {
+	'name': $user.username ?: $alert.username,
+	'report': $content.Report.title,
+	'reaction': reaction_title($extra.reaction_id)
+}) }}
+
+<push:url>{{ link('canonical:reports/comments', $content) }}</push:url>
+<push:tag>report_comment_reaction_{$content.user_id}_{$extra.reaction_id}</push:tag>

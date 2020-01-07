@@ -1,0 +1,1 @@
+{username} <a {comment_attributes}>commented</a> on the report {report}.

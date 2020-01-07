@@ -140,7 +140,7 @@ class ConversationMessage extends AbstractHandler
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getEntityWith()
     {

@@ -30,11 +30,22 @@ class Setup extends AbstractSetup
     public function installStep1()
     {
         $sm = $this->schemaManager();
+
         $sm->alterTable('xf_conversation_message', function (Alter $table) {
             $table->addColumn('j_warning_id', 'int')->setDefault(0);
             $table
                 ->addColumn('j_warning_message', 'varchar', 255)
                 ->setDefault('');
+        });
+
+        $sm->alterTable('xf_report_comment', function (Alter $table) {
+            $table->addColumn('j_ip_id', 'int')->setDefault(0);
+            $table
+                ->addColumn('reaction_score', 'int')
+                ->unsigned(false)
+                ->setDefault(0);
+            $table->addColumn('reactions', 'blob')->nullable();
+            $table->addColumn('reaction_users', 'blob');
         });
     }
 

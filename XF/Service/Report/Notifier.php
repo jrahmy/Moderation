@@ -137,31 +137,7 @@ class Notifier extends XFCP_Notifier
      */
     protected function sendAssignNotification(User $user)
     {
-        if ($user->user_id == $this->comment->user_id) {
-            return false;
-        }
-
-        if (!empty($this->usersAlerted[$user->user_id])) {
-            return false;
-        }
-
-        /** @var \XF\Repository\UserAlert $alertRepo */
-        $alertRepo = $this->repository('XF:UserAlert');
-        $alert = $alertRepo->alert(
-            $user,
-            $this->comment->user_id,
-            $this->comment->username,
-            'report',
-            $this->comment->report_id,
-            'assign_user',
-            ['comment' => $this->comment->toArray()]
-        );
-        if (!$alert) {
-            return false;
-        }
-
-        $this->usersAlerted[$user->user_id] = true;
-        return true;
+        return $this->sendNotification($user, 'assign_user');
     }
 
     /**
@@ -170,6 +146,17 @@ class Notifier extends XFCP_Notifier
      * @return bool
      */
     protected function sendCommentNotification(User $user)
+    {
+        return $this->sendNotification($user, $this->comment->action);
+    }
+
+    /**
+     * @param User   $user
+     * @param string $action
+     *
+     * @return bool
+     */
+    protected function sendNotification(User $user, $action)
     {
         if ($user->user_id == $this->comment->user_id) {
             return false;
@@ -187,8 +174,11 @@ class Notifier extends XFCP_Notifier
             $this->comment->username,
             'report',
             $this->comment->report_id,
-            $this->comment->action,
-            ['comment' => $this->comment->toArray()]
+            $action,
+            [
+                'depends_on_addon_id' => 'Jrahmy/Moderation',
+                'comment' => $this->comment->toArray(),
+            ]
         );
         if (!$alert) {
             return false;

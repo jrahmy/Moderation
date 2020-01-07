@@ -1,0 +1,15 @@
+<div class="contentRow-title">
+	{{ phrase('j_m_news_feed_report_comment_insert', {
+		'username': username_link($user, false, {'defaultname': $newsFeed.username}),
+		'comment_attributes': 'href="' . link('reports/comments', $content) . '"',
+		'report': $content.Report.title
+	}) }}
+</div>
+
+<div class="contentRow-snippet">
+	{{ snippet($content.message, $xf.options.newsFeedMessageSnippetLength, {'stripQuote': true}) }}
+</div>
+
+<div class="contentRow-minor">
+	<xf:date time="{$newsFeed.event_date}" />
+</div>

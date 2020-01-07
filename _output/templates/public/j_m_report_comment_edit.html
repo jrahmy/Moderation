@@ -1,0 +1,26 @@
+<xf:title>{{ phrase('j_m_edit_report_comment') }}</xf:title>
+
+<xf:breadcrumb href="{{ link('reports') }}">{{ phrase('reports') }}</xf:breadcrumb>
+<xf:breadcrumb href="{{ link('reports', $report) }}">{$report.title}</xf:breadcrumb>
+
+<xf:form action="{{ link('reports/comments/edit', $comment) }}" class="{{ !$quickEdit ? 'block' : '' }}" ajax="true">
+	<div class="{{ !$quickEdit ? 'block-container' : '' }}">
+		<div class="{{ !$quickEdit ? 'block-body' : '' }}">
+			<xf:editorrow name="message"
+				value="{$comment.message}"
+				rowtype="{{ $quickEdit ? 'fullWidth noLabel' : '' }}"
+				label="{{ phrase('message') }}"
+				data-min-height="{{ $quickEdit ? 40 : 100 }}"
+				rendereropts="{{ {'treatAsStructuredText': true} }}" />
+		</div>
+
+		<xf:if is="$quickEdit">
+			<xf:formrow rowtype="fullWidth noLabel">
+				<xf:button type="submit" class="button--primary" icon="save" />
+				<xf:button class="js-cancelButton">{{ phrase('button.cancel') }}</xf:button>
+			</xf:formrow>
+		<xf:else />
+			<xf:submitrow icon="save" />
+		</xf:if>
+	</div>
+</xf:form>
