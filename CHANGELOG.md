@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ----------
+
+[1.0.3] - 2020-01-06
+--------------------
 ### Added
 - Display content link on conversation message reports
 - Implement editing for report comments
