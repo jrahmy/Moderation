@@ -3,6 +3,8 @@ Changelog
 
 Unreleased
 ----------
+### Changed
+- Prevent deletion of state-change comments
 
 [1.0.3] - 2020-01-06
 --------------------
