@@ -28,10 +28,6 @@ class ReportComment extends XFCP_ReportComment
 
         /** @var \XF\Entity\Report $report */
         $report = $this->Report;
-        if (!$report) {
-            return false;
-        }
-
         return $report->canView();
     }
 
