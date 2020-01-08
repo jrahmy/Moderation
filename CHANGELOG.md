@@ -6,6 +6,7 @@ Unreleased
 ### Changed
 - Prevent deletion of state-change comments
 - Send alerts for report comments instead of reports
+- Add missing upgrade steps
 
 [1.0.3] - 2020-01-06
 --------------------
