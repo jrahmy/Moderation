@@ -1,0 +1,5 @@
+{{ phrase('j_m_x_opened_report_y', {
+	'name': $user.username ?: $alert.username,
+	'title': $content.Report.title
+}) }}
+<push:url>{{ link('canonical:reports/comments', $content) }}</push:url>

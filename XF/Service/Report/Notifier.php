@@ -134,10 +134,22 @@ class Notifier extends XFCP_Notifier
      * @param User $user
      *
      * @return bool
+     *
+     * @noparent
      */
     protected function sendAssignNotification(User $user)
     {
         return $this->sendNotification($user, 'assign_user');
+    }
+
+    /**
+     * @param User $user
+     *
+     * @return bool
+     */
+    protected function sendMentionNotification(User $user)
+    {
+        return $this->sendNotification($user, 'mention');
     }
 
     /**
@@ -172,13 +184,9 @@ class Notifier extends XFCP_Notifier
             $user,
             $this->comment->user_id,
             $this->comment->username,
-            'report',
-            $this->comment->report_id,
-            $action,
-            [
-                'depends_on_addon_id' => 'Jrahmy/Moderation',
-                'comment' => $this->comment->toArray(),
-            ]
+            'report_comment',
+            $this->comment->report_comment_id,
+            $action
         );
         if (!$alert) {
             return false;
