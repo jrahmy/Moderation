@@ -1,6 +1,11 @@
 Changelog
 =========
 
+[1.0.6] - 2020-01-08
+--------------------
+### Changed
+- Eager-fetch relations to reduce query impact
+
 [1.0.5] - 2020-01-08
 --------------------
 ### Changed
