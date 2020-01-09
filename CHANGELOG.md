@@ -1,8 +1,8 @@
 Changelog
 =========
 
-Unreleased
-----------
+[1.0.4] - 2020-01-08
+--------------------
 ### Changed
 - Prevent deletion of state-change comments
 - Send alerts for report comments instead of reports
