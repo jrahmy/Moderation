@@ -1,8 +1,8 @@
 Changelog
 =========
 
-Unreleased
-----------
+[1.0.5] - 2020-01-08
+--------------------
 ### Changed
 - Fix fatal error when upgrading the add-on
 
