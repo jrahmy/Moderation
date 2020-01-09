@@ -52,6 +52,13 @@ class Report extends XFCP_Report
     {
         $structure = parent::getStructure($structure);
 
+        $commentsRelation = &$structure->relations['Comments'];
+        if (!isset($commentsRelation['with'])) {
+            $commentsRelation['with'] = [];
+        }
+        $visitor = \XF::visitor();
+        $commentsRelation['with'][] = "Reactions|{$visitor->user_id}";
+
         $structure->relations['Warnings'] = [
             'entity' => 'XF:Warning',
             'type' => self::TO_MANY,

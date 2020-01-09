@@ -54,4 +54,17 @@ class ConversationMessage extends XFCP_ConversationMessage
             'message_id' => $report->content_id,
         ]);
     }
+
+    /**
+     * @return string[]
+     */
+    public function getEntityWith()
+    {
+        $with = parent::getEntityWith();
+
+        $visitor = \XF::visitor();
+        $with[] = "Conversation.Users|{$visitor->user_id}";
+
+        return $with;
+    }
 }
