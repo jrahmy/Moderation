@@ -7,6 +7,7 @@ Unreleased
 - Prevent deletion of state-change comments
 - Send alerts for report comments instead of reports
 - Add missing upgrade steps
+- Reflect report comment action in news feed items
 - Code clean-up
 
 [1.0.3] - 2020-01-06
