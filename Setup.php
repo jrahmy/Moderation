@@ -60,7 +60,7 @@ class Setup extends AbstractSetup
     /**
      * Applies schema changes for conversation warnings.
      */
-    public function upgrade1000411Step1()
+    public function upgrade1000511Step1()
     {
         $sm = $this->schemaManager();
         $sm->alterTable('xf_conversation_message', function (Alter $table) {
@@ -74,8 +74,9 @@ class Setup extends AbstractSetup
     /**
      * Applies schema changes for report comment features.
      */
-    public function upgrade1000411Step2()
+    public function upgrade1000511Step2()
     {
+        $sm = $this->schemaManager();
         $sm->alterTable('xf_report_comment', function (Alter $table) {
             $table->addColumn('j_ip_id', 'int')->setDefault(0);
             $table
