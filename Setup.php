@@ -58,6 +58,36 @@ class Setup extends AbstractSetup
     }
 
     /**
+     * Applies schema changes for conversation warnings.
+     */
+    public function upgrade1000411Step1()
+    {
+        $sm = $this->schemaManager();
+        $sm->alterTable('xf_conversation_message', function (Alter $table) {
+            $table->addColumn('j_warning_id', 'int')->setDefault(0);
+            $table
+                ->addColumn('j_warning_message', 'varchar', 255)
+                ->setDefault('');
+        });
+    }
+
+    /**
+     * Applies schema changes for report comment features.
+     */
+    public function upgrade1000411Step2()
+    {
+        $sm->alterTable('xf_report_comment', function (Alter $table) {
+            $table->addColumn('j_ip_id', 'int')->setDefault(0);
+            $table
+                ->addColumn('reaction_score', 'int')
+                ->unsigned(false)
+                ->setDefault(0);
+            $table->addColumn('reactions', 'blob')->nullable();
+            $table->addColumn('reaction_users', 'blob');
+        });
+    }
+
+    /**
      * @param int   $previousVersion
      * @param array $stateChanges
      */

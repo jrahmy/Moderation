@@ -28,10 +28,6 @@ class ReportComment extends XFCP_ReportComment
 
         /** @var \XF\Entity\Report $report */
         $report = $this->Report;
-        if (!$report) {
-            return false;
-        }
-
         return $report->canView();
     }
 
@@ -85,7 +81,7 @@ class ReportComment extends XFCP_ReportComment
      */
     public function canDelete(&$error = null)
     {
-        if ($this->is_report) {
+        if ($this->action != 'comment') {
             return false;
         }
 
