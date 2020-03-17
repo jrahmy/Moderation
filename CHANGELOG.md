@@ -1,8 +1,8 @@
 Changelog
 =========
 
-Unreleased
-----------
+[1.0.7] - 2020-03-17
+--------------------
 ### Changed
 - Link report title in news feed phrases
 - Add title to news feed item for new reports
