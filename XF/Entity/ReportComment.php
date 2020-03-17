@@ -38,6 +38,10 @@ class ReportComment extends XFCP_ReportComment
      */
     public function canEdit(&$error = null)
     {
+        if ($this->isClosureComment()) {
+            return false;
+        }
+
         $visitor = \XF::visitor();
         if (!$visitor->user_id) {
             return false;
