@@ -1,1 +1,1 @@
-{username} <a {comment_attributes}>rejected</a> the report {report}.
+{username} rejected the report <a {comment_attributes}>{report}</a>.

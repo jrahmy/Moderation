@@ -1,1 +1,1 @@
-{username} <a {comment_attributes}>opened</a> the report {report}.
+{username} opened the report <a {comment_attributes}>{report}</a>.

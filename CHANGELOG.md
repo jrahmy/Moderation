@@ -1,6 +1,11 @@
 Changelog
 =========
 
+Unreleased
+----------
+### Changed
+- Link report title in news feed phrases
+
 [1.0.6] - 2020-01-08
 --------------------
 ### Changed

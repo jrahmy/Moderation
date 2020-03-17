@@ -1,1 +1,1 @@
-{username} <a {comment_attributes}>resolved</a> the report {report}.
+{username} resolved the report <a {comment_attributes}>{report}</a>.
