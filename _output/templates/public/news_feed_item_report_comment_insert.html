@@ -1,5 +1,11 @@
 <div class="contentRow-title">
-	<xf:if is="$content.action == 'comment'">
+	<xf:if is="$content.action == 'report'">
+		{{ phrase('j_m_news_feed_report_comment_report', {
+			'username': username_link($user, false, {'defaultname': $newsFeed.username}),
+			'comment_attributes': 'href="' . link('reports/comments', $content) . '"',
+			'title': $content.Report.title
+		}) }}
+	<xf:elseif is="$content.action == 'comment'" />
 		{{ phrase('j_m_news_feed_report_comment_comment', {
 			'username': username_link($user, false, {'defaultname': $newsFeed.username}),
 			'comment_attributes': 'href="' . link('reports/comments', $content) . '"',

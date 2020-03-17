@@ -1,0 +1,5 @@
+{{ phrase('j_m_x_assigned_you_to_report_y', {
+	'name': $user.username ?: $alert.username,
+	'title': $content.title
+}) }}
+<push:url>{{ link('canonical:reports/comments', $alert.extra_data.comment) }}</push:url>

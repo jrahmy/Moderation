@@ -134,8 +134,6 @@ class Notifier extends XFCP_Notifier
      * @param User $user
      *
      * @return bool
-     *
-     * @noparent
      */
     protected function sendAssignNotification(User $user)
     {
@@ -146,10 +144,12 @@ class Notifier extends XFCP_Notifier
      * @param User $user
      *
      * @return bool
+     *
+     * @noparent
      */
     protected function sendMentionNotification(User $user)
     {
-        return $this->sendNotification($user, 'mention');
+        return $this->sendNotification($user, 'comment_mention');
     }
 
     /**
@@ -184,9 +184,13 @@ class Notifier extends XFCP_Notifier
             $user,
             $this->comment->user_id,
             $this->comment->username,
-            'report_comment',
-            $this->comment->report_comment_id,
-            $action
+            'report',
+            $this->comment->report_id,
+            $action,
+            [
+                'depends_on_addon_id' => 'Jrahmy/Moderation',
+                'comment' => $this->comment->toArray(),
+            ]
         );
         if (!$alert) {
             return false;

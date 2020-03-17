@@ -1,1 +1,1 @@
-{username} <a {comment_attributes}>assigned</a> the report {report}.
+{username} assigned the report <a {comment_attributes}>{report}</a>.
