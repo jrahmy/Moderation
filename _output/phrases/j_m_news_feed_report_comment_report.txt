@@ -1,0 +1,1 @@
+{username} reported the content <a {comment_attributes}>{title}</a>.

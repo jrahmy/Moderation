@@ -5,6 +5,7 @@ Unreleased
 ----------
 ### Changed
 - Link report title in news feed phrases
+- Add title to news feed item for new reports
 
 [1.0.6] - 2020-01-08
 --------------------
