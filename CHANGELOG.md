@@ -7,6 +7,7 @@ Unreleased
 - Link report title in news feed phrases
 - Add title to news feed item for new reports
 - Prevent report closure comments from being edited
+- Send alerts for reports instead of report comments
 
 [1.0.6] - 2020-01-08
 --------------------
