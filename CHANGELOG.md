@@ -1,6 +1,11 @@
 Changelog
 =========
 
+Unreleased
+----------
+### Changed
+- Fix title variable in report mention alerts
+
 [1.0.7] - 2020-03-17
 --------------------
 ### Changed
