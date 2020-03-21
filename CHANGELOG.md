@@ -5,6 +5,7 @@ Unreleased
 ----------
 ### Changed
 - Fix title variable in report mention alerts
+- Disable word censor within the report view
 
 [1.0.7] - 2020-03-17
 --------------------
