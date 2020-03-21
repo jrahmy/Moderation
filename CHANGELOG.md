@@ -1,6 +1,12 @@
 Changelog
 =========
 
+[1.0.8] - 2020-03-21
+--------------------
+### Changed
+- Fix title variable in report mention alerts
+- Disable word censor within the report view
+
 [1.0.7] - 2020-03-17
 --------------------
 ### Changed

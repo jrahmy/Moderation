@@ -1,6 +1,6 @@
 {{ phrase('x_mentioned_you_in_comment_in_report_y', {
 	'name': $user.username ?: $alert.username,
-	'title': $content.Report.title
+	'title': $content.title
 }) }}
 
 <push:url>{{ link('reports/comments', $alert.extra_data.comment) }}</push:url>

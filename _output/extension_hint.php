@@ -26,6 +26,11 @@ namespace Jrahmy\Moderation\XF\Pub\Controller
 	class XFCP_Report extends \XF\Pub\Controller\Report {}
 }
 
+namespace Jrahmy\Moderation\XF\Pub\View\Report
+{
+	class XFCP_View extends \XF\Pub\View\Report\View {}
+}
+
 namespace Jrahmy\Moderation\XF\Report
 {
 	class XFCP_ConversationMessage extends \XF\Report\ConversationMessage {}

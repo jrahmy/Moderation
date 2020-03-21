@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Pub\\View\\Report\\View",
+    "to_class": "Jrahmy\\Moderation\\XF\\Pub\\View\\Report\\View",
+    "execute_order": 10,
+    "active": true
+}
