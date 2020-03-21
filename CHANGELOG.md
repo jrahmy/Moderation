@@ -1,8 +1,8 @@
 Changelog
 =========
 
-Unreleased
-----------
+[1.0.8] - 2020-03-21
+--------------------
 ### Changed
 - Fix title variable in report mention alerts
 - Disable word censor within the report view
