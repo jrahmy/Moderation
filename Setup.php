@@ -45,7 +45,7 @@ class Setup extends AbstractSetup
                 ->unsigned(false)
                 ->setDefault(0);
             $table->addColumn('reactions', 'blob')->nullable();
-            $table->addColumn('reaction_users', 'blob');
+            $table->addColumn('reaction_users', 'blob')->nullable();
         });
     }
 
@@ -87,6 +87,17 @@ class Setup extends AbstractSetup
             $table->addColumn('reaction_users', 'blob');
         });
     }
+
+	/**
+	 * Allows the `reaction_users` column to be nullable.
+	 */
+	public function upgrade100911Step1()
+	{
+        $sm = $this->schemaManager();
+        $sm->alterTable('xf_report_comment', function (Alter $table) {
+			$table->changeColumn('reaction_users')->nullable();
+        });
+	}
 
     /**
      * @param int   $previousVersion
