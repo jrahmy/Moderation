@@ -1,6 +1,11 @@
 Changelog
 =========
 
+Unreleased
+----------
+### Changed
+- Allow the report comment `reaction_users` column to be nullable
+
 [1.0.8] - 2020-03-21
 --------------------
 ### Changed
